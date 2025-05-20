@@ -1,0 +1,38 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+    <h1>Select your City</h1>
+    <div class="cities-container">
+    <form action="/weather" method="post">
+    <% if (locals.cities) { 
+        var all_states = []
+        for (var i = 0; i < cities.length; i++) { 
+            if (!all_states.includes(cities[i].state)){
+                all_states.push(cities[i].state)
+            %>
+           
+                <button type="submit" class="city-choose" name="city" value="<%=JSON.stringify(cities[i])%>" >
+                <h2><%= cities[i].name%> </h2>
+                <h3><%= cities[i].state%>, <%= cities[i].country%>  </h3>
+            
+                </button>
+             
+       
+     <% } } } %>
+    </form>
+    </div>
+
+    <div>
+    <form action="/" method="get">
+        <button class="back-button"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg>
+
+</button>
+    </form>
+    </div>
+
+</div>
+
+</body>
+</html> 

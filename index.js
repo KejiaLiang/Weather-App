@@ -20,6 +20,7 @@ app.post("/city", async (req,res) => {
     try {
        const result = await axios.get(API_URL + `geo/1.0/direct?q=${req.body.city}&limit=5&appid=${api_key}`)
        console.log(result.data)
+       res.render("city.ejs", {cities:result.data})
     }
 
     catch (error) {
@@ -27,6 +28,27 @@ app.post("/city", async (req,res) => {
     };
 })
 
+
+
+app.post("/weather", async (req,res) => {
+    //console.log(req.body)
+    const city = JSON.parse(req.body.city)
+    //console.log(city);
+    try {
+      const result = await axios.get(API_URL + `data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${api_key}`)
+      console.log(result.data)
+      res.render("city.ejs", {
+        name: city.name,
+        state: city.state,
+        country: city.country,
+        
+      })
+    }
+
+    catch (error) {
+
+    };
+})
 
 app.listen(port, ()=>{
     console.log(`Server running on port ${port}.`)
