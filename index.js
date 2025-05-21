@@ -19,7 +19,7 @@ app.post("/city", async (req,res) => {
     console.log(req.body)
     try {
        const result = await axios.get(API_URL + `geo/1.0/direct?q=${req.body.city}&limit=5&appid=${api_key}`)
-       console.log(result.data)
+       console.log(result.data.length)
        res.render("city.ejs", {cities:result.data})
     }
 
