@@ -36,15 +36,20 @@ app.post("/weather", async (req,res) => {
     //console.log(city);
     try {
       const result = await axios.get(API_URL + `data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${api_key}`)
-      console.log(result.data)
-      res.render("city.ejs", {
+      console.log(result.data.weather[0].main)
+      res.render("weather.ejs", {
         name: city.name,
         state: city.state,
         country: city.country,
+        weather: result.data.weather[0].main,
+        icon_URL: `https://openweathermap.org/img/wn/${result.data.weather[0].icon}@2x.png`,
+        data : result.data.main
         
-      })
+        
+      });
+      console.log(`https://openweathermap.org/img/wn/${result.data.weather[0].icon}@2x.png`)
     }
-
+    
     catch (error) {
 
     };

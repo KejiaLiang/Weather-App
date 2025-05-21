@@ -1,5 +1,4 @@
 body{
-
     background-image: url("../images/sky.jpg"), linear-gradient(rgba(0, 0, 0, 0.326),rgba(174, 184, 191, 0.075));
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -10,9 +9,6 @@ body{
     justify-content: center;
     align-items: flex-start;
     font-family: "Manrope", sans-serif;
-
-
-    
 }
 
 h1{
@@ -20,9 +16,11 @@ h1{
     padding-bottom: 10px;
 }
 
+
 h2{
     font-size: 1.7rem;
 }
+
 h3{
     font-size: 1.3rem;
 }
@@ -38,14 +36,10 @@ h3{
     padding: 30px 50px;
     height:auto;
     width: fit-content; 
-    
- 
-
 }
 
 button{
     transition-duration: 0.3s;
-
 }
 
 .form-submit{
@@ -59,15 +53,11 @@ button{
     background-color: rgb(74, 93, 154);
     border: 2px solid rgb(74, 93, 154);
     color: white;
-    
-
 }
 
 #city-submit:hover{
     color: black;
     background-color: white;
-   
-
 }
 
 input {
@@ -103,3 +93,51 @@ input {
     background-color: rgba(35, 53, 97, 0.785);
     color:white;
 }
+
+#current-temp{
+    font-size:3rem;
+    margin:0px;
+
+}
+
+.weather-container{
+    margin-top: 20vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    /*background: linear-gradient(rgba(255, 255, 255, 0.3),rgba(103, 143, 171, 0.0));*/
+    border-radius: 20px;
+    padding: 40px;
+    
+  
+}
+
+.city-weather{
+    margin: 0px;
+    margin-bottom : 10px;
+    padding:0px
+}
+
+p{
+    font-size: 1.2rem;
+}
+
+.weather-icon{
+    margin-left: 60px;
+    width: 10rem;
+    height:10rem;
+    
+}
+
+.display-temp{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding:0px 40px;
+}
+
+.upper-left-button{
+    margin-top: 21vh;
+    margin-right: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+

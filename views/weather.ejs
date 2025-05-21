@@ -1,0 +1,37 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/" method="get">
+    <button class="back-button upper-left-button"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg>
+</button>
+</form>
+
+<div class="grid-container">
+    <div class="weather-container">
+    <h1 class="city-weather"> <%= name %></h1>
+    <p class="city-weather"><%= state + ", " + country %></p>
+
+        <div class="display-temp">
+            <h2 id="current-temp"><%=Math.round(data.temp - 273.15)%>°C</h2>
+            <img class="weather-icon" src="<%= icon_URL %>">
+        </div>
+
+    <p><%= weather %></p>
+    <p>Feels like <%= Math.round(data.feels_like - 273.15)%>°C</p>
+    </div>
+
+    <div class="weather-container">
+
+    </div>
+
+    <div class="details-container">
+
+    </div>
+
+    <div class="details-container">
+        
+    </div>
+</div>
+</body>
+</html>
