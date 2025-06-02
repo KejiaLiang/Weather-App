@@ -1,0 +1,117 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/weather" method="get">
+    <button class="back-button upper-left-button"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+    </svg>
+    </button>
+</form>
+
+
+<div class="aqi-container">
+<div class="weather-container top-margin ">
+    <div class="air-container"> 
+        <% const aqi = air_quality.main.aqi;
+            var aqi_value = "";
+
+            switch (aqi){
+                case 1: 
+                    aqi_value = "Good";
+                    break;
+                
+                case 2: 
+                    aqi_value = "Fair";
+                    break;
+
+                case 3: 
+                    aqi_value = "Moderate";
+                    break;
+                
+                case 4: 
+                    aqi_value = "Poor";
+                    break;
+                
+                default:
+                    aqi_value = "Very Poor"
+
+            } %>
+    <h2>Air Quality: </h2>
+    <h2 id="aqi"> <%= aqi_value %> (<%= aqi %>)</h2>
+   </div>
+   </div>
+
+   <div class="weather-container gradient ">
+    <h2 class="pollutants-title">Air Pollutants</h2>
+
+    <div class="data-container air-container">
+        <div class="pollutants-name">
+            <h3>CO</h3>
+            <p>(Carbon Monoxide)</p>
+        </div>
+        <div class="pollutants-value">
+            <h3>Good</h3>
+            <p><%= air_quality.components.co %> μg/m<sup>3</sup></p>
+        </div>
+    </div>
+
+     <div class="data-container air-container">
+        <div class="pollutants-name">
+            <h3>O<sub>3</sub></h3>
+            <p>(Ozone)</p>
+        </div>
+        <div class="pollutants-value">
+            <h3>Good</h3>
+            <p><%= air_quality.components.o3 %> μg/m<sup>3</sup></p>
+        </div>
+    </div>
+
+     <div class="data-container air-container">
+        <div class="pollutants-name">
+            <h3>NO<sub>2</sub></h3>
+            <p>(Nitrogen Dioxide)</p>
+        </div>
+        <div class="pollutants-value">
+            <h3>Good</h3>
+            <p><%= air_quality.components.no2 %> μg/m<sup>3</sup></p>
+        </div>
+    </div>
+
+    <div class="data-container air-container">
+        <div class="pollutants-name">
+            <h3>PM<sub>2.5</sub></h3>
+            <p>(Fine particles matter)</p>
+        </div>
+        <div class="pollutants-value">
+            <h3>Good</h3>
+            <p><%= air_quality.components.pm2_5 %> μg/m<sup>3</sup></p>
+        </div>
+    </div>
+
+    
+    <div class="data-container air-container">
+        <div class="pollutants-name">
+            <h3>PM<sub>10</sub></h3>
+            <p>(Coarse particulate matter)</p>
+        </div>
+        <div class="pollutants-value">
+            <h3>Good</h3>
+            <p><%= air_quality.components.pm10 %> μg/m<sup>3</sup></p>
+        </div>
+    </div>
+
+    
+    <div class="data-container air-container">
+        <div class="pollutants-name">
+            <h3>SO<sub>2</sub></h3>
+            <p>(Sulphur Dioxide)</p>
+        </div>
+        <div class="pollutants-value">
+            <h3>Good</h3>
+            <p><%= air_quality.components.so2 %> μg/m<sup>3</sup></p>
+        </div>
+    </div>
+
+
+</div>
+</div>
+</div>
