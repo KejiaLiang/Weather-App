@@ -9,34 +9,46 @@
 
 
 <div class="aqi-container">
-<div class="weather-container top-margin ">
+<div class="weather-container top-margin">
+
+
     <div class="air-container"> 
         <% const aqi = air_quality.main.aqi;
             var aqi_value = "";
+            var classColor = "";
 
             switch (aqi){
                 case 1: 
                     aqi_value = "Good";
+                    classColor = "aqi-good";
                     break;
                 
                 case 2: 
                     aqi_value = "Fair";
+                    classColor = "aqi-fair";
                     break;
 
                 case 3: 
                     aqi_value = "Moderate";
+                    classColor = "aqi-moderate";
                     break;
                 
                 case 4: 
                     aqi_value = "Poor";
+                    classColor = "aqi-poor";
                     break;
                 
                 default:
                     aqi_value = "Very Poor"
+                    classColor = "aqi-very-poor";
 
-            } %>
+            }
+            %>
     <h2>Air Quality: </h2>
-    <h2 id="aqi"> <%= aqi_value %> (<%= aqi %>)</h2>
+    <div class="same-row"><h2 id="aqi"> <%= aqi_value %> (<%= aqi %>)</h2>
+        <div class="circle <%= classColor %> "></div>
+   </div>
+
    </div>
    </div>
 
@@ -82,8 +94,19 @@
             <p>(Fine particles matter)</p>
         </div>
         <div class="pollutants-value">
-            <h3>Good</h3>
-            <p><%= air_quality.components.pm2_5 %> μg/m<sup>3</sup></p>
+
+            <% var AQIPM2_5 ='';
+                var PM2_5Conc = air_quality.components.pm2_5;
+
+                if (PM2_5Conc <= 12) AQIPM2_5 = "Good";
+                else if (PM2_5Conc <= 35.4) AQIPM2_5 = "Moderate";
+                else if (PM2_5Conc <= 55.4) AQIPM2_5 = "Unhealthy For Sensitive Groups";
+                else if (PM2_5Conc <= 150.4) AQIPM2_5 = "Unhealthy";
+                else if (PM2_5Conc <= 250.4) AQIPM2_5 = "Very Unhealthy";
+                else AQIPM2_5 = "Hazardous";
+                %>
+            <h3><%= AQIPM2_5 %></h3>
+            <p><%= PM2_5Conc %> μg/m<sup>3</sup></p>
         </div>
     </div>
 
@@ -94,7 +117,19 @@
             <p>(Coarse particulate matter)</p>
         </div>
         <div class="pollutants-value">
-            <h3>Good</h3>
+
+               <% var AQIPM10 ='';
+                var PM10Conc = air_quality.components.pm10;
+
+                if (PM10Conc <= 54) AQIPM10 = "Good";
+                else if (PM10Conc <= 154) AQIPM10 = "Moderate";
+                else if (PM10Conc <= 254) AQIPM10 = "Unhealthy For Sensitive Groups";
+                else if (PM10Conc <= 354) AQIPM10 = "Unhealthy";
+                else if (PM10Conc <= 424) AQIPM10 = "Very Unhealthy";
+                else AQIPM10 = "Hazardous";
+                %>
+
+            <h3><%= AQIPM10 %> </h3>
             <p><%= air_quality.components.pm10 %> μg/m<sup>3</sup></p>
         </div>
     </div>
