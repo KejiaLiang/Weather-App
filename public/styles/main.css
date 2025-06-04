@@ -136,12 +136,11 @@ p{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding:0px 40px;
+    padding-left: 40px;
 }
 
 .upper-left-button{
-    margin-top: 21vh;
-    margin-right: 20px;
+    margin:21vh 20px 0 0 ;
     background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -190,6 +189,7 @@ p{
     display: flex;
     justify-content: space-between;
     max-width: 500px;
+    min-width: 350px;
     width: 30vw;
     margin-bottom: 0px;
 }
@@ -269,4 +269,15 @@ p{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+
+@media (max-width: 600px) {
+    body {
+     transform: scale(0.55);
+    transform-origin: center; 
+    
+  }
+
+
 }
