@@ -61,7 +61,17 @@
             <p>(Carbon Monoxide)</p>
         </div>
         <div class="pollutants-value">
-            <h3>Good</h3>
+             <% var AQICO ='';
+                var COConc = air_quality.components.co / (1.15 * 1000) ;  //ppm 
+
+                if (COConc <= 4.4) AQICO = "Good";
+                else if (COConc <= 9.4) AQICO = "Moderate";
+                else if (COConc <= 12.4) AQICO = "Unhealthy For Sensitive Groups";
+                else if (COConc <= 15.4) AQICO = "Unhealthy";
+                else if (COConc <= 30.4) AQICO = "Very Unhealthy";
+                else AQICO = "Hazardous";
+                %>
+            <h3><%= AQICO %></h3>
             <p><%= air_quality.components.co %> μg/m<sup>3</sup></p>
         </div>
     </div>
@@ -72,7 +82,16 @@
             <p>(Ozone)</p>
         </div>
         <div class="pollutants-value">
-            <h3>Good</h3>
+             <% var AQIO3 ='';
+                var O3Conc = air_quality.components.o3 ;  
+
+                if (O3Conc <= 60) AQIO3 = "Good";
+                else if (O3Conc <= 100) AQIO3 = "Fair";
+                else if (O3Conc <= 140) AQIO3 = "Moderate";
+                else if (O3Conc <= 180) AQIO3 = "Poor";
+                else AQIO3 = "Very Poor";
+                %>
+            <h3><%= AQIO3 %></h3>
             <p><%= air_quality.components.o3 %> μg/m<sup>3</sup></p>
         </div>
     </div>
@@ -83,7 +102,17 @@
             <p>(Nitrogen Dioxide)</p>
         </div>
         <div class="pollutants-value">
-            <h3>Good</h3>
+            <% var AQINO2 ='';
+                var NO2Conc = air_quality.components.no2 ;  
+
+                if (NO2Conc <= 100) AQINO2 = "Good";
+                else if (NO2Conc <= 188) AQINO2 = "Moderate";
+                else if (NO2Conc <= 677) AQINO2 = "Unhealthy For Sensitive Groups";
+                else if (NO2Conc <= 1221) AQINO2 = "Unhealthy";
+                else if (NO2Conc <= 2348) AQINO2 = "Very Unhealthy";
+                else AQINO2 = "Hazardous";
+                %>
+            <h3><%= AQINO2 %></h3>
             <p><%= air_quality.components.no2 %> μg/m<sup>3</sup></p>
         </div>
     </div>
@@ -141,7 +170,17 @@
             <p>(Sulphur Dioxide)</p>
         </div>
         <div class="pollutants-value">
-            <h3>Good</h3>
+             <% var AQISO2 ='';
+                var SO2Conc = air_quality.components.so2 ;  
+
+                if (SO2Conc <= 93) AQISO2 = "Good";
+                else if (SO2Conc <= 199) AQISO2 = "Moderate";
+                else if (SO2Conc <= 487) AQISO2 = "Unhealthy For Sensitive Groups";
+                else if (SO2Conc <=800) AQISO2 = "Unhealthy";
+                else if (SO2Conc <= 1582) AQISO2 = "Very Unhealthy";
+                else AQISO2 = "Hazardous";
+                %>
+            <h3><%= AQISO2 %></h3>
             <p><%= air_quality.components.so2 %> μg/m<sup>3</sup></p>
         </div>
     </div>
